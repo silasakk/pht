@@ -49,7 +49,7 @@
 <section class="section-banner">
     <div class="overlay"></div>
     <div class="banner-text">
-        <h1>Welcome to <br> Phuket Happiness</h1>
+        <h1><?php echo get_field('text_header')?></h1>
         <button type="button" class="btn btn-primary">BOOKING</button>
     </div>
 </section>
