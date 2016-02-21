@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>  ng-app="phtApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +15,7 @@
     <link href="<?php echo get_template_directory_uri() ?>/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/flexslider.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/animate.min.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri() ?>/css/lightgallery.min.css" rel="stylesheet">
 
     <link href="<?php echo get_template_directory_uri() ?>/css/main.css" rel="stylesheet">
 
