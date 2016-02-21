@@ -1,28 +1,62 @@
-<?php
-/**
- * The template for displaying the footer.
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package PHT
- */
+<section class="section-footer">
+	<div class="container">
+		<div class="col-sm-4 footer-col">
+			<div class="title">About</div>
+			<div class="detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</div>
+		</div>
+		<div class="col-sm-4 footer-col">
+			<div class="title">Top Booking</div>
+			<div class="detail">
+				<ul>
+					<li><a href="">Lorem ipsum dolor sit amet</a></li>
+					<li><a href="">Lorem ipsum dolor sit amet</a></li>
+					<li><a href="">Lorem ipsum dolor sit amet</a></li>
+					<li><a href="">Lorem ipsum dolor sit amet</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-4 footer-col">
+			<div class="title">Contact</div>
+			<div class="detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</div>
+		</div>
+	</div>
+</section>
+<div class="copyright">
+	COPYRIGHT © 2016 PHUKET HAPPINESS TRIP Public Company Limited ALL RIGHTS RESERVED.
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?php echo get_template_directory_uri()?>/js/bootstrap.min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/js/jquery.flexslider-min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/js/isotope.pkgd.min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/js/wow.min.js"></script>
+<!-- Place in the <head>, after the three links -->
+<script type="text/javascript" charset="utf-8">
 
-?>
+	jQuery('.nav-mobile').on('click',function(){
+		jQuery('.nav-menu').slideToggle('fast');
+	});
 
-	</div><!-- #content -->
+	$.getScript('//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js',function(){
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pht' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'pht' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'pht' ), 'pht', '<a href="http://devdever.com" rel="designer">devdever</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+		/* activate jquery isotope */
+		$('.posts').imagesLoaded( function(){
+			$('.posts').isotope({
+				itemSelector : '.item'
+			});
+		});
 
-<?php wp_footer(); ?>
+	});
+	/*new WOW().init();
+	 $(window).load(function() {
+
+	 $('.flexslider').flexslider({
+	 animation: "slide",
+
+	 });
+	 });*/
+</script>
 
 </body>
 </html>

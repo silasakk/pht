@@ -143,6 +143,15 @@ hr{
   text-align: center;
   color: #fff;
 }
+.posts{
+  .item{
+    margin-bottom: 30px !important;
+  }
+}
+.head-web{
+  margin: 40px 0;
+
+}
 @media(min-width:768px){
   .section-banner{
     position: relative;
