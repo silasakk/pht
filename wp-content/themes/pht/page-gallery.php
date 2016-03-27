@@ -36,10 +36,6 @@
                 <a href="//lorempixel.com/800/600/city"><img class="img-responsive" src="//lorempixel.com/800/600/city"></a>
             </div>
 
-
-
-
-            
         </div>
     </div>
 
