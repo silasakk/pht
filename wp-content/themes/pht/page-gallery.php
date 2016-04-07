@@ -23,9 +23,7 @@
 
         <?php
 
-<<<<<<< HEAD
-        </div>
-=======
+
         $rows = get_field('gallery_pic');
         if ($rows) {
             echo '<div class="row posts">';
@@ -43,7 +41,7 @@
         }
         ?>
 
->>>>>>> origin/master
+
     </div>
 
 
