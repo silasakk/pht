@@ -166,6 +166,74 @@ hr{
     }
   }
 }
+.fa-cir{
+  cursor: pointer;
+  width:40px;
+  text-align: center;
+  line-height: 40px;
+  border :  1px solid #666;
+  border-radius: 50%;
+}
+.test-item-list{
+  float: left;
+  margin-bottom: 20px;
+  .username{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .position{
+    margin-bottom: 10px;
+  }
+  .detail{
+    line-height: 180%;
+    color: #666;
+  }
+  .t-gall{
+    display: none;
+    margin: 20px 0;
+  }
+}
+.page-content{
+  margin: 20px 0;
+}
+.contact-page{
+  h1{
+    font-size: 25px;
+  }
+  .addr{
+    margin-bottom: 20px;
+  }
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 36.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.videoWrapper #map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.thumb-feature{
+  position: relative;
+  .ico-user{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    img{
+      -webkit-box-shadow: 0 8px 6px -6px black;
+      -moz-box-shadow: 0 8px 6px -6px black;
+      box-shadow: 0 8px 6px -6px black;
+    }
+
+  }
+}
 /**** Isotope CSS3 transitions ****/
 .isotope,
 .isotope .isotope-item {

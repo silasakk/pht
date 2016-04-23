@@ -59,6 +59,13 @@
 	});
 
 	$(document).ready(function() {
+		jQuery('.fa-cir').on('click',function(){
+			jQuery(this).parent().parent().find('.t-gall').toggle();
+
+		});
+
+
+
 		$(".posts").lightGallery({
 			selector: '.item a',
 			'thumbnail' : false
@@ -68,14 +75,9 @@
 	var app = angular.module('phtApp', []);
 
 
-	/*new WOW().init();
-	 $(window).load(function() {
 
-	 $('.flexslider').flexslider({
-	 animation: "slide",
 
-	 });
-	 });*/
+
 </script>
 
 </body>
