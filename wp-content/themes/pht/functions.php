@@ -114,15 +114,17 @@ add_action( 'widgets_init', 'pht_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pht_scripts() {
-	wp_enqueue_style( 'pht-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'pht-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'pht-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+
+
+	wp_enqueue_script('jquery-ui-datepicker');
+	wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+
+
+
+
 }
 add_action( 'wp_enqueue_scripts', 'pht_scripts' );
 
@@ -151,6 +153,17 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+function register_custom_post_type() {
+	global $wp_post_types;
+
+	$wp_post_types['book']->show_in_rest = true;
+	$wp_post_types['book']->rest_base = 'book';
+	$wp_post_types['book']->rest_controller_class = 'WP_REST_Posts_Controller';
+
+
+}
+add_action( 'init', 'register_custom_post_type', 30 );
+
 
 if( function_exists('acf_add_options_page') ) {
 
@@ -163,3 +176,47 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 }
+function disqus_embed($disqus_shortname="phukethappinesstrip") {
+	global $post;
+	wp_enqueue_script('disqus_embed','http://'.$disqus_shortname.'.disqus.com/embed.js');
+	echo '<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = "'.$disqus_shortname.'";
+        var disqus_title = "'.$post->post_title.'";
+        var disqus_url = "'.get_permalink($post->ID).'";
+        var disqus_identifier = "'.$disqus_shortname.'-'.$post->ID.'";
+    </script>';
+}
+function getUniqueCode($length = "")
+{
+	$code = md5(uniqid(rand(), true));
+	if ($length != "") return substr($code, 0, $length);
+	else return $code;
+}
+function example_disable_saving_subs( $save, $form_id ) {
+	// Set $save = false based on condition
+	//var_dump($_POST);die;
+	return $save;
+}
+
+function ninja_forms_register_example(){
+	add_action( 'ninja_forms_post_process', 'ninja_forms_example' );
+}
+add_action( 'init', 'ninja_forms_register_example' );
+function ninja_forms_example(){
+	global $ninja_forms_processing;
+
+	//Get all the user submitted values
+	$all_fields = $ninja_forms_processing->get_all_fields();
+
+	if( is_array( $all_fields ) ){ //Make sure $all_fields is an array.
+		//Loop through each of our submitted values.
+		foreach( $all_fields as $field_id => $user_value ){
+			//Update an external database with each value
+		}
+
+		//var_dump($all_fields);die;
+		//echo $ninja_forms_processing->get_form_setting( 'sub_id' );die;
+	}
+}
+add_filter( 'ninja_forms_save_submission', 'example_disable_saving_subs', 2, 10 );

@@ -10,7 +10,7 @@
     <title>Phuket Happiness Trip</title>
     <!--<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">-->
-
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="<?php echo get_template_directory_uri() ?>/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/flexslider.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <link href="<?php echo get_template_directory_uri() ?>/css/lightgallery.min.css" rel="stylesheet">
 
     <link href="<?php echo get_template_directory_uri() ?>/css/main.css" rel="stylesheet">
-
+    <?php wp_head(); ?>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,12 +26,12 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body <?php  body_class()?>>
 <section class="section-nav">
-    <div class="nav">
+    <div class="nav <?php echo (is_front_page()) ? 'fr-page' : '' ?>">
         <div class="container">
             <div class="nav-logo">
-                <img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="">
+                <a href="<?php echo site_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt=""></a>
             </div>
 
             <div class="nav-mobile">
@@ -39,11 +39,11 @@
             </div>
             <div class="nav-menu">
                 <ul class="list-unstyled">
-                    <li><a href="">Home</a></li>
+                    <li><a href="<?php echo site_url() ?>">Home</a></li>
                     <li><a href="">Package</a></li>
-                    <li><a href="">Testimonail</a></li>
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="<?php echo site_url('testimonial') ?>">Testimonial</a></li>
+                    <li><a href="<?php echo site_url('gallery') ?>">Gallery</a></li>
+                    <li><a href="<?php echo site_url('contact-us') ?>">Contact</a></li>
                 </ul>
             </div>
         </div>

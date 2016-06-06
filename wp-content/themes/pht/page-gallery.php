@@ -1,5 +1,5 @@
 <?php get_header() ?>
-    <div class="section-banner"></div>
+    <!--<div class="section-banner"></div>-->
     <div class="container">
         <h1 class="head-web">GALLERY</h1>
 

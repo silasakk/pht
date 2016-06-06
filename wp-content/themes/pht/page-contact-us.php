@@ -7,9 +7,9 @@ if( !empty($image) ){
 }
 ?>
 
-<div class="section-banner" <?php echo (isset($background)) ? "style='background:url(".$background.")'" : "" ?>>
+<!--<div class="section-banner" <?php /*echo (isset($background)) ? "style='background:url(".$background.")'" : "" */?>>
 
-</div>
+</div>-->
 <div class="page-content">
 
     <div class="container">
@@ -43,6 +43,33 @@ if( !empty($image) ){
 
                     </div>
                 </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="ttmz">
+                        <div class="row">
+                            <?php
+                            $args = array( 'hide_empty' => 0 );
+                            $terms = get_terms( 'package-category' , $args);
+                            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+
+                                foreach ( $terms as $term ) : ?>
+                                    <div class="col-sm-12">
+                                        <div class="title"><a href=""><?php echo $term->name ?></a></div>
+                                    </div>
+
+                                <?php endforeach;
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <?php echo do_shortcode('[contact-form-7 id="7" title="Contact Form"]') ?>
+                </div>
+
+
             </div>
         </div>
 

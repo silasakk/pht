@@ -7,9 +7,9 @@ if( !empty($image) ){
 }
 ?>
 
-<div class="section-banner" <?php echo (isset($background)) ? "style='background:url(".$background.")'" : "" ?>>
+<!--<div class="section-banner" <?php /*echo (isset($background)) ? "style='background:url(".$background.")'" : "" */?>>
 
-</div>
+</div>-->
 <div class="page-content">
 
     <div class="container">
