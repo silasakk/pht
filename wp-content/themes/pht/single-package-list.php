@@ -37,9 +37,33 @@ the_post();
                     <?php endif; ?>
 
                     <div class="dis">
+
+
+
+
+                        <div id="disqus_thread"></div>
+                        <script>
+                            /**
+                             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                             */
+                             var disqus_config = function () {
+                                this.page.url = '<?php echo get_permalink(); ?>';
+                                this.page.identifier = '<?php echo get_the_ID();; ?>';
+                             };
+                            (function() {  // DON'T EDIT BELOW THIS LINE
+                                var d = document, s = d.createElement('script');
+
+                                s.src = '//phukethappinesstrip.disqus.com/embed.js';
+
+                                s.setAttribute('data-timestamp', +new Date());
+                                (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                         <?php
 
-                        disqus_embed();
+                        //disqus_embed();
 
                         ?>
                     </div>
@@ -61,7 +85,7 @@ the_post();
                                     <option value="">Select Price</option>
                                     <?php if( have_rows('price_list') ): ?>
                                         <?php while( have_rows('price_list') ): the_row(); ?>
-                                            <option value="<?php echo number_format(get_sub_field('price_amount')) ?>"><?php echo (get_sub_field('price_type')) ?> <?php echo number_format(get_sub_field('price_amount')) ?> THB  (<?php echo (get_sub_field('price_remark')) ?>)</option>
+                                            <option value="<?php echo intval(get_sub_field('price_amount')) ?>"><?php echo (get_sub_field('price_type')) ?> <?php echo number_format(get_sub_field('price_amount')) ?> THB  <?php echo get_sub_field('price_remark') ?  "(". (get_sub_field('price_remark')) .")" : "" ?></option>
                                         <?php endwhile ?>
                                     <?php endif; ?>
                                 </select>

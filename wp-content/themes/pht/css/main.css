@@ -15,7 +15,7 @@ a:hover {
 
 body {
   font-family: 'Lato','supermarket';
-  font-weight: 400;
+  font-weight: 300;
   line-height: 160%;
   letter-spacing: 1px; }
 
@@ -274,13 +274,15 @@ hr {
   .package-list .card {
     display: block;
     border: 1px solid #ebebeb;
-    padding: 10px; }
+    padding: 10px;
+    margin-bottom: 15px; }
     .package-list .card img {
       margin-bottom: 10px; }
     .package-list .card .title {
       margin-bottom: 10px;
       color: #333;
-      font-weight: bold; }
+      font-weight: bold;
+      height: 44px; }
     .package-list .card .detail {
       height: 44px;
       overflow: hidden;
