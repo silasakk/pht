@@ -16,6 +16,7 @@
     <link href="<?php echo get_template_directory_uri() ?>/css/flexslider.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/animate.min.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/lightgallery.min.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri() ?>/css/jquery.fs.stepper.css" rel="stylesheet">
 
     <link href="<?php echo get_template_directory_uri() ?>/css/main.css" rel="stylesheet">
     <?php wp_head(); ?>

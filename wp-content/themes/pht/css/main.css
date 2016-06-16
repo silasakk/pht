@@ -261,7 +261,7 @@ hr {
 
 .pack-panel {
   background: #f5f5f5;
-  padding: 60px; }
+  padding: 5px; }
 
 .description {
   line-height: 160%; }
@@ -347,9 +347,13 @@ hr {
       color: #fff; }
 
 @media (min-width: 992px) {
+  .pack-panel {
+    padding: 60px; }
+
   .nav.fr-page {
     background: none;
     position: absolute;
+    width: 100%;
     z-index: 9; }
     .nav.fr-page .nav-menu li {
       background: none; }

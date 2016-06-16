@@ -173,7 +173,7 @@ error_reporting(E_ALL);
     </section>
     <section class="section-pathner section-panel">
         <div class="container">
-            <h1 class="title">OUR PATHER</h1>
+            <h1 class="title">OUR PARTNER</h1>
             <hr>
             <div class="row">
 
@@ -187,7 +187,7 @@ error_reporting(E_ALL);
                                     ?>
 
                                     <div class="pathner-logo">
-                                        <a href="<?php echo get_field('parther_link')?>"><img class="img-responsive img-circle"
+                                        <a href="<?php echo get_sub_field('parther_link')?>"><img class="img-responsive img-circle"
                                                                                               width="150"
                                                                                               src="<?php echo $image["url"] ?>"
                                                                                               alt=""></a>

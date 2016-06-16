@@ -14,10 +14,19 @@
 
 
 				<ul>
-					<li><a href="">Diving</a></li>
-					<li><a href="">Fishing Trip</a></li>
-					<li><a href="">Island Sight Seeing</a></li>
-					<li><a href="">Land Adventure Trip</a></li>
+					<?php
+					$args = array( 'hide_empty' => 0 );
+					$terms = get_terms( 'package-category' , $args);
+					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+
+						foreach ( $terms as $term ) : ?>
+							<li><a href="<?php echo get_term_link($term) ?>"><?php echo $term->name ?></a></li>
+
+
+						<?php endforeach;
+					}
+					?>
+
 				</ul>
 			</div>
 		</div>
@@ -43,11 +52,13 @@
 <script src="<?php echo get_template_directory_uri()?>/js/bootstrap.min.js"></script>
 <script src="<?php echo get_template_directory_uri()?>/js/lightgallery-all.min.js"></script>
 <script src="<?php echo get_template_directory_uri()?>/js/jquery.flexslider-min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/js/jquery.fs.stepper.js"></script>
 <script src="<?php echo get_template_directory_uri()?>/js/wow.min.js"></script>
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
 
 	jQuery(window).load(function() {
+
 		jQuery('.partslider').flexslider({
 			animation: "slide",
 			selector:".slides > .pathner-logo",
@@ -108,6 +119,37 @@
 	});
 
 	jQuery(document).ready(function() {
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+		jQuery("input[type='number']").stepper();
+
+		jQuery('.price_input').on('change',function(){
+
+
+			jQuery('.price_tt').text(0);
+			jQuery('#dtl').text('');
+			var total = 0;
+
+
+			jQuery('.table tr.cca').each(function(){
+				var type = jQuery(this).find('.p_type').text();
+				var p = jQuery(this).find('.price_cal').val();
+				var c_price = jQuery(this).find('.price_input').val();
+				total += parseInt(c_price) * parseInt(p);
+
+				//console.log(total , p , c_price);
+				jQuery('#dtl').append('<p> '+type+' [ '+ c_price+' ]  '+ numberWithCommas(parseInt(c_price) * parseInt(p)) +'  THB</p>')
+
+
+
+			});
+			jQuery('.price_tt_cal').val(total);
+			jQuery('.price_tt').text(  numberWithCommas(total) );
+
+		});
+
+
 		jQuery('.fa-cir').on('click',function(){
 			jQuery(this).parent().parent().find('.t-gall').toggle();
 
@@ -132,8 +174,8 @@
 
 	jQuery('#booking').on('click',function(){
 
-		jQuery('table .price').html(jQuery('#select_price option:selected').text());
-		jQuery('#price').val(jQuery('#select_price').val())
+		jQuery('table .price').html(jQuery('.price_tt').text());
+		jQuery('#price').val(jQuery('.price_tt_cal').val())
 
 	});
 
@@ -163,6 +205,7 @@
 		jQuery('#save img').show();
 		var data = {
 			package : jQuery('#package').val(),
+			detail : jQuery('#dtl').text(),
 			amount : jQuery('#price').val(),
 			booking_date : '<?php date('Y-m-d H:i:s') ?>',
 			departure_date : jQuery('#Mydate').val(),
