@@ -217,7 +217,7 @@
 
 		};
 
-		var token = '<?php echo base64_encode( 'pht' . ':' . 'V3LcYNZYDixni4P7' )  ?>';
+		var token = '<?php echo base64_encode( 'admin' . ':' . '91xu SV5Q BxnY Ch1r' )  ?>';
 		var req = {
 			url: '<?php echo esc_url_raw( get_rest_url() ) ?>' + 'wp/v2/' + 'book',
 			type: 'POST',
@@ -239,7 +239,7 @@
 				jQuery('#item_number').val(res.id);
 				jQuery('#amount').val(jQuery('#price').val());
 
-				jQuery('#frm_paypal').submit();
+				//jQuery('#frm_paypal').submit();
 			}
 		};
 		jQuery.ajax(req);

@@ -220,3 +220,4 @@ function ninja_forms_example(){
 	}
 }
 add_filter( 'ninja_forms_save_submission', 'example_disable_saving_subs', 2, 10 );
+
