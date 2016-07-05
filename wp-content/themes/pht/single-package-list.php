@@ -88,10 +88,10 @@ the_post();
                                         <tr class="cca">
 
                                             <td class="p_type"><?php echo(get_sub_field('price_type')) ?></td>
-                                            <td><?php echo number_format(get_sub_field('price_amount')) ?> THB</td>
+                                            <td><?php echo number_format( (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0) ?> THB</td>
                                             <td><?php echo(get_sub_field('price_remark')) ?></td>
                                             <td width="80">
-                                                <input type="hidden" class="price_cal" value="<?php echo get_sub_field('price_amount')?>">
+                                                <input type="hidden" class="price_cal" value="<?php echo (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0 ?>">
                                                 <input type="number" class="price_input" value="0" min="0" max="20" step="1"/>
                                             </td>
 
