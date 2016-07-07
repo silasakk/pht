@@ -41,7 +41,7 @@
             <div class="nav-menu">
                 <ul class="list-unstyled">
                     <li><a href="<?php echo site_url() ?>">Home</a></li>
-                    <li><a href="">Package</a></li>
+                    <li><a href="#package">Package</a></li>
                     <li><a href="<?php echo site_url('testimonial') ?>">Testimonial</a></li>
                     <li><a href="<?php echo site_url('gallery') ?>">Gallery</a></li>
                     <li><a href="<?php echo site_url('contact-us') ?>">Contact</a></li>

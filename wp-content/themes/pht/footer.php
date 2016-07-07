@@ -134,15 +134,18 @@
 
 			jQuery('.table tr.cca').each(function(){
 				var type = jQuery(this).find('.p_type').text();
+				var sub_type = jQuery(this).find('.p_sub_type').text();
 				var p = jQuery(this).find('.price_cal').val();
 				var c_price = jQuery(this).find('.price_input').val();
 
 
+
+
 				total += parseInt(c_price) * parseInt(p);
-				console.log(total)
+				console.log(total,sub_type);
 
 				//console.log(total , p , c_price);
-				jQuery('#dtl').append('<p> '+type+' [ '+ c_price+' ]  '+ numberWithCommas(parseInt(c_price) * parseInt(p)) +'  THB</p>')
+				jQuery('#dtl').append('<p> '+type+' [ '+ c_price+' ] '+sub_type+'  '+ numberWithCommas(parseInt(c_price) * parseInt(p)) +'  THB</p>')
 
 
 

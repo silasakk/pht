@@ -81,31 +81,74 @@ the_post();
 
                         <div class="form-group">
                             <label for="">PRICE</label>
+                            <?php
+                            $terms = get_the_terms(get_the_ID(), 'package-category');
 
-                            <table class="table">
-                                <?php if (have_rows('price_list')): ?>
-                                    <?php while (have_rows('price_list')): the_row(); ?>
-                                        <tr class="cca">
+                            if($terms[0]->slug == "transfer-service"):?>
+                                <table class="table">
+                                    <?php if (have_rows('transfer_list')): ?>
+                                        <?php while (have_rows('transfer_list')): the_row(); ?>
+                                            <tr>
 
-                                            <td class="p_type"><?php echo(get_sub_field('price_type')) ?></td>
-                                            <td><?php echo number_format( (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0) ?> THB</td>
-                                            <td><?php echo(get_sub_field('price_remark')) ?></td>
-                                            <td width="80">
-                                                <input type="hidden" class="price_cal" value="<?php echo (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0 ?>">
-                                                <input type="number" class="price_input" value="0" min="0" max="20" step="1"/>
-                                            </td>
+                                                <td class="p_type" style="width: 40%;"><?php echo(get_sub_field('transfer_title')) ?></td>
+                                                <td class="">
+                                                    <?php if (have_rows('transfer_type')): ?>
+                                                        <table class="" style="background: none;width: 100%;">
+                                                        <?php while (have_rows('transfer_type')): the_row(); ?>
 
-                                        </tr>
-                                    <?php endwhile ?>
-                                <?php endif; ?>
-                                <tr>
-                                    <td colspan="2">Total Price</td>
-                                    <td colspan="2" class="text-right">
-                                        <input type="hidden" class="price_tt_cal">
-                                        <span class="text-success price_tt">0</span>
-                                    </td>
-                                </tr>
-                            </table>
+                                                                <tr class="cca">
+                                                                    <td  class="p_sub_type" ><?php echo  get_sub_field('type')  ?></td>
+                                                                    <td><?php echo  number_format(get_sub_field('price'))  ?></td>
+                                                                    <td>
+                                                                        <input type="hidden" class="price_cal" value="<?php echo (get_sub_field('price') > 0) ? get_sub_field('price') : 0 ?>">
+                                                                        <input type="number" class="price_input" value="0" min="0" max="20" step="1"/></td>
+                                                                </tr>
+
+
+                                                        <?php endwhile ?>
+                                                        </table>
+                                                    <?php endif; ?>
+                                                </td>
+
+
+                                            </tr>
+                                        <?php endwhile ?>
+                                    <?php endif; ?>
+                                    <tr>
+                                        <td colspan="">Total Price</td>
+                                        <td colspan="" class="text-right">
+                                            <input type="hidden" class="price_tt_cal">
+                                            <span class="text-success price_tt">0</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <?php else: ?>
+                                <table class="table">
+                                    <?php if (have_rows('price_list')): ?>
+                                        <?php while (have_rows('price_list')): the_row(); ?>
+                                            <tr class="cca">
+
+                                                <td class="p_type"><?php echo(get_sub_field('price_type')) ?></td>
+                                                <td><?php echo number_format( (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0) ?> THB</td>
+                                                <td><?php echo(get_sub_field('price_remark')) ?></td>
+                                                <td width="80">
+                                                    <input type="hidden" class="price_cal" value="<?php echo (get_sub_field('price_amount') > 0) ? get_sub_field('price_amount') : 0 ?>">
+                                                    <input type="number" class="price_input" value="0" min="0" max="20" step="1"/>
+                                                </td>
+
+                                            </tr>
+                                        <?php endwhile ?>
+                                    <?php endif; ?>
+                                    <tr>
+                                        <td colspan="2">Total Price</td>
+                                        <td colspan="2" class="text-right">
+                                            <input type="hidden" class="price_tt_cal">
+                                            <span class="text-success price_tt">0</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <?php endif ?>
+
 
                         </div>
 

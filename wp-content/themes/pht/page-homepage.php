@@ -8,10 +8,49 @@ error_reporting(E_ALL);
         <div class="overlay"></div>
         <div class="banner-text">
             <h1><?php echo get_field('text_header') ?></h1>
-            <button type="button" class="btn btn-yellow">BOOKING</button>
+            <?php
+            // the query
+            $args = array(
+                'post_type' => 'package-list',
+                'posts_per_page' => 1,
+                'post_status' => 'publish',
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'key'     => 'feature',
+                        'value'   => 'on',
+                        'compare' => 'LIKE',
+                    ),
+                ),
+            );
+            $the_query = new WP_Query( $args );
+
+            ?>
+
+            <?php if ( $the_query->have_posts() ) : ?>
+
+                <!-- pagination here -->
+
+                <!-- the loop -->
+                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                    <a href="<?php the_permalink() ?>" class="btn btn-yellow">BOOKING</a>
+                <?php endwhile; ?>
+                <!-- end of the loop -->
+
+                <!-- pagination here -->
+
+                <?php wp_reset_postdata(); ?>
+
+            <?php else : ?>
+
+            <?php endif; ?>
+
+
+
+            <?php wp_reset_postdata(); ?>
         </div>
     </section>
-    <section class="section-package section-panel">
+    <section id="package" class="section-package section-panel">
         <div class="container">
             <div class="title"><h2>POPULAR TOUR</h2></div>
             <hr>
