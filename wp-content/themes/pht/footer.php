@@ -142,10 +142,13 @@
 
 
 				total += parseInt(c_price) * parseInt(p);
-				console.log(total,sub_type);
+				console.log(c_price);
 
 				//console.log(total , p , c_price);
-				jQuery('#dtl').append('<p> '+type+' [ '+ c_price+' ] '+sub_type+'  '+ numberWithCommas(parseInt(c_price) * parseInt(p)) +'  THB</p>')
+				if(parseInt(c_price) > 0){
+
+					jQuery('#dtl').append('<p> '+type+' [ '+ c_price+' ] '+sub_type+'  '+ numberWithCommas(parseInt(c_price) * parseInt(p)) +'  THB</p>')
+				}
 
 
 
